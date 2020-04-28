@@ -11,5 +11,4 @@ export default function BagelListContainer(props){
             {bagels}
         </section>
     )
-
 }

@@ -17,7 +17,14 @@ class App extends Component {
   }
 
   addToFavorites = (bagel) => {
+    if(!this.state.favorites.find(bag => bag.id === bagel.id)){
     this.setState({favorites: [...this.state.favorites,bagel]})
+    }
+  }
+
+  removeFromFavorites = (bagel) => {
+    let newFavs = this.state.favorites.filter(bag => bag.id !== bagel.id)
+    this.setState({favorites: newFavs})
   }
 
 
@@ -25,7 +32,7 @@ class App extends Component {
   return (
     <div className="App">
       <h1>Favs</h1>
-      <Favorites favorites={this.state.favorites} />
+      <Favorites favorites={this.state.favorites} removeFromFavorites={this.removeFromFavorites} />
       <h1>List of Bagels</h1>
       <BagelListComponent bagels={this.state.bagels} addToFavorites={this.addToFavorites}/>
     </div>
