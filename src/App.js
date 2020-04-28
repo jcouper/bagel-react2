@@ -32,9 +32,9 @@ class App extends Component {
   return (
     <div className="App">
       <h1>Favs</h1>
-      <Favorites favorites={this.state.favorites} removeFromFavorites={this.removeFromFavorites} />
+      <Favorites favorites={this.state.favorites} action={this.removeFromFavorites} />
       <h1>List of Bagels</h1>
-      <BagelListComponent bagels={this.state.bagels} addToFavorites={this.addToFavorites}/>
+      <BagelListComponent bagels={this.state.bagels} action={this.addToFavorites}/>
     </div>
   );
   }

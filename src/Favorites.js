@@ -3,7 +3,7 @@ import Card from './components/Card'
 
 export default function Favorites(props){
     const bagels = props.favorites.map(bagel => {
-        return <Card bagel={bagel}/>
+        return <Card bagel={bagel} action={props.action}/>
     })
 
     return (

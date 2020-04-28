@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function Card(props){
-    const {bagel, addToFavorites} = props
+    const {bagel, action} = props
 
     function handleClick(){
-        addToFavorites(bagel)
+        action(bagel)
     }
     return(
         <div className='bagel-listing' onClick={handleClick} >
