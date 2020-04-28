@@ -7,7 +7,8 @@ import Favorites from './Favorites';
 class App extends Component {
 
   state = {
-    bagels: []
+    bagels: [],
+    favorites: []
   }
   componentDidMount(){
     fetch('http://bagel-api-fis.herokuapp.com/bagels')
@@ -15,17 +16,18 @@ class App extends Component {
     .then(bagelList => this.setState({bagels: bagelList}))
   }
 
-  addToFavorites = () => {
-    this.setState()
+  addToFavorites = (bagel) => {
+    this.setState({favorites: [...this.state.favorites,bagel]})
   }
 
 
   render(){
   return (
     <div className="App">
-      <h1>All the Bagels!</h1>
-      <Favorites />
-      <BagelListComponent bagels={this.state.bagels}/>
+      <h1>Favs</h1>
+      <Favorites favorites={this.state.favorites} />
+      <h1>List of Bagels</h1>
+      <BagelListComponent bagels={this.state.bagels} addToFavorites={this.addToFavorites}/>
     </div>
   );
   }

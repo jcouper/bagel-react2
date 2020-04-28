@@ -1,10 +1,14 @@
 import React from 'react';
 
 export default function Card(props){
-        console.log(props)
+    const {bagel, addToFavorites} = props
+
+    function handleClick(){
+        addToFavorites(bagel)
+    }
     return(
-        <div className='bagel-listing'>
-                <h1>{props.bagel.type}</h1>
+        <div className='bagel-listing' onClick={handleClick} >
+                <h1>{bagel.type}</h1>
         </div>
     )
 }
